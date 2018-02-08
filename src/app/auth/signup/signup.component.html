@@ -1,0 +1,18 @@
+<form class="flex-container" #signupForm="ngForm" (ngSubmit)="submitForm(signupForm)">
+    <mat-form-field>
+        <input matInput placeholder="Your email" ngModel #email="ngModel" name="email" required email>
+        <mat-hint>Enter your valid Email</mat-hint>
+        <mat-error *ngIf="email.invalid">email is required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="password" matInput #password="ngModel" name="password" ngModel placeholder="Your password" required>
+        <mat-hint>Password must have a numeric value</mat-hint>
+        <mat-error *ngIf="password.invalid">password is required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [matDatepicker]="myDatepicker" placeholder="Date of birth">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker [startAt]="startDate" #myDatepicker></mat-datepicker>
+    </mat-form-field>
+    <button mat-raised-button type="submit" color="accent">submit</button>
+</form>
