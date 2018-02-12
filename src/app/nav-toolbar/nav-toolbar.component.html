@@ -1,0 +1,17 @@
+<mat-toolbar class="toolbar" color="primary">
+    <div>
+        <button mat-icon-button (click)="toggleSideNav()">
+            <mat-icon aria-label="Example icon-button with a heart icon">menu</mat-icon>
+        </button>
+    </div>
+    <div>
+        <a class="brand" routerLink="/">Logo</a>
+    </div>
+    <div style="display:flex;flex-direction:row-reverse;width: 100%;">
+        <ul class="navigation-list" fxHide.lt-lg="true">
+            <li> <a routerLink="/signup">signup</a></li>
+            <li><a routerLink="/signin">signin</a></li>
+            <li><a routerLink="/training">Training</a></li>
+        </ul>
+    </div>
+</mat-toolbar>

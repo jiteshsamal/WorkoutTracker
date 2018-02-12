@@ -1,3 +1,8 @@
-<p>
-  current-training works!
-</p>
+<section class="progress-margin" fxLayout="column" fxLayoutAlign="center center">
+    <mat-progress-spinner [value]="spinnnervalue"></mat-progress-spinner>
+    <h1>Keep on Going.</h1>
+    <p>
+        <mat-icon>home</mat-icon>Keep it up.You can do it.</p>
+
+    <button mat-raised-button color="accent" (click)="clearTimer()">stop</button>
+</section>

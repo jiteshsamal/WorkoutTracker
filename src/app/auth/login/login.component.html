@@ -1,3 +1,21 @@
-<p>
-  login works!
-</p>
+<div id="login" style="background: url('assets/RunningMan.jpg') center center fixed;background-size: cover;height: 100vh;overflow: hidden; ">
+    <section class="login-section">
+        <form class="login-form" style="background-color:white;" [formGroup]="signinForm" novalidate>
+
+            <div style="text-align: center;color:chocolate;font-weight:bold;font-size:20px;margin-top:20px;">Log in to Workout Tracker</div>
+
+            <button type="submit" mat-raised-button style="background-color:#0067b8;color:white;">Log in with Facebook</button>
+
+            <mat-form-field>
+                <input class="form-control" type="email" matInput placeholder="Email" formControlName="email">
+                <mat-error *ngIf="signinForm.get('email').hasError('required')">Email is required</mat-error>
+                <mat-error *ngIf="signinForm.get('email').hasError('email')">Valid email please</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input class="form-control" type="password" matInput placeholder="Password" formControlName="password">
+                <mat-error *ngIf="signinForm.get('password').invalid">invalid password </mat-error>
+            </mat-form-field>
+            <button type="submit" mat-raised-button color="primary" [disabled]="signinForm.invalid" (click)="submitform()">Login</button>
+        </form>
+    </section>
+</div>
