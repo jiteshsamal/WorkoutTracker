@@ -6,6 +6,10 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import {environment} from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
 
 import { AppComponent } from './app.component';
 import { SignupComponent } from './auth/signup/signup.component';
@@ -17,6 +21,12 @@ import {PastTrainingComponent} from './training/past-training/past-training.comp
 import { WelcomeComponent } from './welcome/welcome.component';
 import {NavListComponent} from './nav-list/nav-list.component';
 import {NavToolbarComponent}from './nav-toolbar/nav-toolbar.component';
+
+
+
+import {AuthService} from './auth/auth.service';
+import { StopTrainingComponent } from './training/stop-training/stop-training.component';
+import {TrainingService} from './training/training.service';
 
 
 
@@ -32,8 +42,11 @@ import {NavToolbarComponent}from './nav-toolbar/nav-toolbar.component';
     PastTrainingComponent,
     WelcomeComponent,
     NavListComponent,
-    NavToolbarComponent
+    NavToolbarComponent,
+    StopTrainingComponent
+    
   ],
+  entryComponents:[StopTrainingComponent],
   imports: [
     BrowserModule,
     MaterialModule,
@@ -41,9 +54,12 @@ import {NavToolbarComponent}from './nav-toolbar/nav-toolbar.component';
     FormsModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
-  providers: [],
+ 
+  providers: [AuthService,TrainingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

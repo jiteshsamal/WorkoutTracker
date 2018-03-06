@@ -1,25 +1,22 @@
-<section fxLayout fxLayoutAlign="center center">
+<section class="newTraining" fxLayout fxLayoutAlign="center center">
+    <form  #heroForm="ngForm" (ngSubmit)="trainingStarted(heroForm)">
     <mat-card fxFlex.xs="100%" fxFlex="400px">
-        <mat-card-title>Time to start new workout</mat-card-title>
-        <mat-card-content style="text-align: center;">
+        <mat-card-title fxLayoutAlign="center">Time to start new workout</mat-card-title>
+        <mat-card-content fxLayoutAlign="center">
             <mat-form-field>
-                <mat-select placeholder="Favorite Exercise">
-                    <mat-option [value]="Crun-ches">
-                        Crun-ches
+                <mat-select placeholder="Favorite Exercise" ngModel name="selectedExercise" required >
+                    <mat-option *ngFor="let exec of ExerciseList" [value]="exec.id">
+                        {{exec.name}}
                     </mat-option>
-                    <mat-option [value]="touch-toes">
-                        touch-toes
-                    </mat-option>
-                    <mat-option [value]="Side-lunges">
-                        Side-lunges
-                    </mat-option>
-                    <mat-option [value]="bur-pees">
-                        bur-pees
-                    </mat-option>
-                </mat-select>
+                </mat-select> 
             </mat-form-field>
             <br/>
-            <button mat-raised-button color="accent" (click)="trainingStarted()">Start</button>
+            
         </mat-card-content>
+
+        <mat-card-actions fxLayoutAlign="center">
+            <button mat-raised-button  [disabled]="heroForm.invalid" >Start</button>
+        </mat-card-actions>
     </mat-card>
+</form>
 </section>

@@ -9,9 +9,10 @@
     </div>
     <div style="display:flex;flex-direction:row-reverse;width: 100%;">
         <ul class="navigation-list" fxHide.lt-lg="true">
-            <li> <a routerLink="/signup">signup</a></li>
-            <li><a routerLink="/signin">signin</a></li>
-            <li><a routerLink="/training">Training</a></li>
+            <li> <a *ngIf="!isAuthenticated" routerLink="/signup">signup</a></li>
+            <li><a *ngIf="!isAuthenticated" routerLink="/signin">signin</a></li>
+            <li><a *ngIf="isAuthenticated" routerLink="/training">Training</a></li>
+            <li><a *ngIf="isAuthenticated" (click)="signOut()">signout</a></li>
         </ul>
     </div>
 </mat-toolbar>
