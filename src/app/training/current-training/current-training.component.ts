@@ -31,6 +31,7 @@ export class CurrentTrainingComponent implements OnInit {
           else{
             clearInterval( this.timer);
             this.completeTraining();
+            this.trainingExit.emit();
           }},step)
      }
 
@@ -43,7 +44,6 @@ export class CurrentTrainingComponent implements OnInit {
       });
       dialogRef.afterClosed().subscribe(result => {
         if(result){
-          debugger;
           this.stopTraining();
           this.trainingExit.emit();
         } 
@@ -53,25 +53,23 @@ export class CurrentTrainingComponent implements OnInit {
   }
 
   stopTraining(){
-    debugger;
-     var training=new Exercise();
-     training.name=this.trainingService.runningExercise.name;
-     training.duration=this.trainingService.runningExercise.duration*this.spinnnervalue/100 * 1000;
-     training.calories=this.trainingService.runningExercise.calories * (this.spinnnervalue/100);
-     training.state='stopped';
-     training.startDate=new Date().toDateString();
+    var training=this.createvariable('stopped')
      this.trainingService.stopTraining(training);
-     console.log();
   }
 
   completeTraining(){
-    debugger;
-    var training=new Exercise();
-    training.name=this.trainingService.runningExercise.name;
-    training.duration=this.trainingService.runningExercise.duration*this.spinnnervalue/100 * 1000;
-    training.calories=this.trainingService.runningExercise.calories * (this.spinnnervalue/100);
-    training.state='completed';
-    training.startDate=new Date().toDateString();
+    var training=this.createvariable('completed')
     this.trainingService.stopTraining(training);
+ }
+
+ createvariable(state){
+  var training=new Exercise();
+  training.id=this.trainingService.runningExercise.id;
+  training.name=this.trainingService.runningExercise.name;
+  training.duration=this.trainingService.runningExercise.duration*this.spinnnervalue/100 * 1000;
+  training.calories=this.trainingService.runningExercise.calories * (this.spinnnervalue/100);
+  training.state=state;
+  training.startDate=new Date().toDateString();
+  return training;
  }
 }

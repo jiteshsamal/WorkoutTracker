@@ -15,6 +15,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -36,7 +38,9 @@ import {MatDialogModule} from '@angular/material/dialog';
      MatCardModule,
      MatSelectModule,
      MatProgressSpinnerModule,
-     MatDialogModule
+     MatDialogModule,
+     MatTableModule,
+     MatSnackBarModule
     ],
   imports: [MatButtonModule,
     MatIconModule,
@@ -53,6 +57,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSelectModule,
     MatProgressSpinnerModule,
     MatListModule,
-    MatDialogModule]
+    MatDialogModule,
+    MatTableModule,
+    MatSnackBarModule]
 })
 export class MaterialModule { }

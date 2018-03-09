@@ -14,5 +14,8 @@
         <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
         <mat-datepicker [startAt]="startDate" #myDatepicker></mat-datepicker>
     </mat-form-field>
-    <button mat-raised-button type="submit" color="accent">submit</button>
+    <button mat-raised-button *ngIf="!showSpinner"  type="submit" color="accent">submit</button>
+    <div style="margin: 0 auto;" *ngIf="showSpinner" >
+        <mat-spinner  [diameter]="diameter" color="accent"></mat-spinner>
+    </div>
 </form>

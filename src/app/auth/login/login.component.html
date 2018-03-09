@@ -15,7 +15,8 @@
                 <input class="form-control" type="password" matInput placeholder="Password" formControlName="password">
                 <mat-error *ngIf="signinForm.get('password').invalid">invalid password </mat-error>
             </mat-form-field>
-            <button type="submit" mat-raised-button color="primary" [disabled]="signinForm.invalid" (click)="submitform()">Login</button>
+            <button type="submit" *ngIf="!showSpinner" mat-raised-button color="primary" [disabled]="signinForm.invalid" (click)="submitform()">Login</button>
+            <div style="margin: 0 auto;" *ngIf="showSpinner" ><mat-spinner  [diameter]="diameter" color="accent"></mat-spinner></div>
         </form>
     </section>
 </div>

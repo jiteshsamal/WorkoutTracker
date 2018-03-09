@@ -7,14 +7,12 @@ import {CurrentTrainingComponent} from './training/current-training/current-trai
 import {NewTrainingComponent} from './training/new-training/new-training.component';
 import {PastTrainingComponent} from './training/past-training/past-training.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import {AuthGuard} from './AuthGuard.service'
+import { AuthGuard } from './AuthGuard.service';
 
 
 const routes:Routes=[
     {path:'',component:WelcomeComponent},
-    {path:'signup',component:SignupComponent},
-    {path:'signin',component:LoginComponent},
-    {path:'training',component:TrainingComponent,canActivate:[AuthGuard]},
+    {path:'training',loadChildren:"../app/training/training.module#TrainingModule", canLoad: [AuthGuard]},
 ]
 
 @NgModule({

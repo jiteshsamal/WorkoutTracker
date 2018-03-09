@@ -4,19 +4,21 @@
         <mat-card-title fxLayoutAlign="center">Time to start new workout</mat-card-title>
         <mat-card-content fxLayoutAlign="center">
             <mat-form-field>
-                <mat-select placeholder="Favorite Exercise" ngModel name="selectedExercise" required >
+                <mat-select   placeholder="Favorite Exercise" ngModel name="selectedExercise" required  >
                     <mat-option *ngFor="let exec of ExerciseList" [value]="exec.id">
                         {{exec.name}}
                     </mat-option>
                 </mat-select> 
             </mat-form-field>
-            <br/>
             
+            <br/>
+          
         </mat-card-content>
 
         <mat-card-actions fxLayoutAlign="center">
             <button mat-raised-button  [disabled]="heroForm.invalid" >Start</button>
         </mat-card-actions>
+        <div style="margin-left: 120px;" *ngIf="spinnerLoading"> <mat-spinner [diameter]="spinnerValue" ></mat-spinner></div>
     </mat-card>
 </form>
 </section>
