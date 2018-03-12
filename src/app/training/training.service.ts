@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 import { AngularFirestore } from 'angularfire2/firestore';
 import {Observable, Subscription} from 'rxjs';
 import {UIService} from '../common/ui-service'
-
+import {AuthService} from '../auth/auth.service'
 
 @Injectable() 
 export class TrainingService{
@@ -18,10 +18,7 @@ export class TrainingService{
     PastExerciseList:Exercise[]=[];
     subscriptioList:Subscription[]=[];
 
-    constructor(
-                private db:AngularFirestore,
-                private uIService:UIService
-                 ){
+    constructor(private db:AngularFirestore,private uIService:UIService){
      
     }
 
@@ -68,11 +65,12 @@ export class TrainingService{
     }
 
 
-    FetchPastExercises(){
+    FetchPastExercises(email){
+        debugger;
         this.uIService.showSpinner.next(true);
-        this.subscriptioList.push(this.db.collection('Past-Exercises').valueChanges()
+        this.subscriptioList.push(this.db.collection('Past-Exercises',ref => ref.where('email', '==', email)).valueChanges()
         .subscribe((data:any)=>{
-           
+            debugger;
                 this.uIService.showSpinner.next(false);
                 this.pastTrainingDataUpdated.next(data)
            
