@@ -11,7 +11,7 @@ import { AuthGuard } from './AuthGuard.service';
 
 
 const routes:Routes=[
-    {path:'',component:WelcomeComponent},
+    {path:'',component:WelcomeComponent,pathMatch: 'full'},
     {path:'training',loadChildren:"../app/training/training.module#TrainingModule", canLoad: [AuthGuard]},
 ]
 
