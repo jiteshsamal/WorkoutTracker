@@ -5,6 +5,7 @@ import {NgForm} from '@angular/forms';
 import { AngularFirestore } from 'angularfire2/firestore';
 import {Observable,Subscription} from 'rxjs';
 import {MatTableDataSource} from '@angular/material';
+import {AuthService} from '../../auth/auth.service'
 
 
 
@@ -24,7 +25,7 @@ export class PastTrainingComponent implements OnInit {
 
   displayedColumns = ['name', 'calories', 'duration', 'state','startDate'];
   dataSource = new MatTableDataSource<Exercise>();
-  constructor(private trainingService:TrainingService) { 
+  constructor(private trainingService:TrainingService, private authService:AuthService) { 
    
   }
 
@@ -32,8 +33,7 @@ export class PastTrainingComponent implements OnInit {
    this.pastDataSubscription = this.trainingService.pastTrainingDataUpdated.subscribe(data=>{
       this.dataSource.data=data;
     });
-
-    this.trainingService.FetchPastExercises();
+    this.trainingService.FetchPastExercises(this.authService.myUser.email);
   }
   ngOnDestory() {
     this.pastDataSubscription.unsubscribe();
