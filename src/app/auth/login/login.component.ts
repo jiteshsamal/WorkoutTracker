@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormControl,FormArray,FormBuilder,Validators} from '@angular/forms';
 import {AuthService} from '../auth.service';
 import  { UIService  } from '../../common/ui-service';
-import {Subscription} from 'rxjs';
+import {Subscription,Observable} from 'rxjs';
+import { Store } from '@ngrx/store';
+import * as fromApp from  '../../app.reducer';
 
 
 @Component({
@@ -12,11 +14,11 @@ import {Subscription} from 'rxjs';
 })
 export class LoginComponent implements OnInit {
   signinForm:FormGroup;
-  showSpinner:boolean=false;
+  showSpinner$:Observable<boolean>;
   spinnerSubscription:Subscription;
   diameter=50;
   strokeWidth=10;
-  constructor(private fb: FormBuilder,private authService:AuthService,private UIService:UIService) {
+  constructor(private fb: FormBuilder,private authService:AuthService,private UIService:UIService,private store:Store<{loading:fromApp.State}>) {
     this.createForm();
    }
   
@@ -29,9 +31,10 @@ export class LoginComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.spinnerSubscription=this.UIService.showSpinner.subscribe(spinner=>{
-        this.showSpinner=spinner;
-    })
+    this.showSpinner$=this.store.map((data)=>data.loading.isLoading);
+    // this.spinnerSubscription=this.UIService.showSpinner.subscribe(spinner=>{
+    //     this.showSpinner=spinner;
+    // })
   }
   submitform(){
     this.authService.signin(this.signinForm.value);
@@ -39,7 +42,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnDestory() {
-    this.spinnerSubscription.unsubscribe();
+    //this.spinnerSubscription.unsubscribe();
   }
 
 }

@@ -6,6 +6,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import {Observable, Subscription} from 'rxjs';
 import {UIService} from '../common/ui-service'
 
+
 @Injectable() 
 export class TrainingService{
 
@@ -17,7 +18,10 @@ export class TrainingService{
     PastExerciseList:Exercise[]=[];
     subscriptioList:Subscription[]=[];
 
-    constructor(private db:AngularFirestore,private uIService:UIService){
+    constructor(
+                private db:AngularFirestore,
+                private uIService:UIService
+                 ){
      
     }
 

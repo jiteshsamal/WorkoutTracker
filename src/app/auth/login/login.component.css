@@ -1,28 +1,3 @@
-#login {
-    width: 100%;
-}
-
 .login-section {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
-}
-
-.login-form {
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-    height: 400px;
-    justify-content: flex-start;
-}
-
-.mat-form-field,
-.mat-raised-button {
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-}
+  }

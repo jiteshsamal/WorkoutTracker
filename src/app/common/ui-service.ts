@@ -12,10 +12,7 @@ export class UIService{
     //trainingDataUpdated=new Subject<Exercise[]>();
 
     constructor(private matSnackBar:MatSnackBar){
-     
     }
-
-
     showSnackBar(code,message,time){
         this.matSnackBar.open(message, code, {
             duration: time

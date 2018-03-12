@@ -28,6 +28,8 @@ import {AuthService} from './auth/auth.service';
 
 import {TrainingService} from './training/training.service';
 import { UIService } from './common/ui-service';
+import {LoadingReducer} from './app.reducer';
+import { StoreModule } from '@ngrx/store';
 
 
 
@@ -49,7 +51,8 @@ import { UIService } from './common/ui-service';
     FlexLayoutModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    StoreModule.forRoot({'loading':LoadingReducer})
   ],
  
   providers: [AuthService,TrainingService,UIService],
