@@ -74,7 +74,7 @@ export class AuthService{
         this.firebaseAuth.auth.signOut();  
     }
 
-    initAuthListener() {
+    initAuthListener() {  
         this.firebaseAuth.authState.subscribe(
             (user) => {
               if (user) {

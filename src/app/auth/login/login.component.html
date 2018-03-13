@@ -1,6 +1,8 @@
 
-    <div class="login-section" style="height:100%;padding:0;margin:0;" >
-        <form class="login-form" fxLayout="column"  fxLayoutAlign="center center"  style="background-color:white;padding:20px;" [formGroup]="signinForm"  novalidate>
+    <div class="login-section" fxLayout fxLayoutAlign="center center"  style="padding-top:8%;" >
+        <form class="login-form" fxLayout="column" fxFlex="400px"  fxFlex.xs="100%"  fxLayoutAlign="center center"  
+                style="background-color:white;padding:20px;height: 500px;" [formGroup]="signinForm"  novalidate>
+                <img src="/assets/unnamed.png" height="100px" width="100px">
                     <div class="flex-item" style="text-align: center;color:chocolate;font-weight:bold;font-size:20px;margin-top:20px;padding:20px;">Log in to Workout Tracker</div>
                     <!-- <button type="submit" mat-raised-button style="background-color:#0067b8;color:white;">Log in with Facebook</button>-->
                      <mat-form-field class="flex-item">
@@ -13,9 +15,9 @@
                          <mat-error *ngIf="signinForm.get('password').invalid">invalid password </mat-error>
                      </mat-form-field>
                      
-                     <div class="flex-item">
-                         <button type="submit" *ngIf="!(showSpinner$ | async)" mat-raised-button color="primary" [disabled]="signinForm.invalid" (click)="submitform()">Login</button>
-                         <div style="margin: 0 auto;" *ngIf="showSpinner$ | async" ><mat-spinner  [diameter]="diameter" color="accent"></mat-spinner></div>
+                     <div class="flex-item" fxLayout fxLayoutAlign="center center" style="padding: 20px;" >
+                         <button type="submit" style="width:200px;" *ngIf="!(showSpinner$ | async)" mat-raised-button color="accent" [disabled]="signinForm.invalid" (click)="submitform()">Login</button>
+                         <div style="margin: 0 auto;" *ngIf="showSpinner$ | async" ><mat-spinner  [diameter]="diameter" color="primary"></mat-spinner></div>
                      </div>
             
             
@@ -23,6 +25,7 @@
         </form>
     </div>
 
+  
 
 
     <style>

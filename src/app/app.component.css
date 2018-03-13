@@ -1,44 +1,14 @@
 mat-sidenav-content,
  mat-sidenav,
-mat-sidenav-container {
+mat-sidenav-container,
+main
+ {
     height: 100%;
+    overflow: hidden;
 }
 
 mat-sidenav {
     width: 250px;
 }
 
-.navigation-list {
-    display: flex;
-    flex-direction: row;
-}
 
-.navigation-list li {
-    list-style: none;
-    padding: 10px;
-}
-
-.navigation-list li a,
-.brand {
-    text-decoration: none;
-    color: white;
-}
-
-.navigation-list li a:hover,
-brand:hover {
-    color: grey;
-}
-
-mat-list-item a {
-    text-decoration: none;
-}
-
-.toolbar {
-    display: flex;
-    flex-direction: row
-}
-
-.navCaption {
-    display: inline-block;
-    padding-left: 6px;
-}
