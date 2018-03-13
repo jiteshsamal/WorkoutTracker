@@ -22,3 +22,8 @@ brand:hover {
 mat-list-item a {
     text-decoration: none;
 }
+
+.icons{
+    position: relative;
+    top: 4px;
+}
