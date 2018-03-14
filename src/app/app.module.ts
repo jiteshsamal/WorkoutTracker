@@ -30,6 +30,7 @@ import {TrainingService} from './training/training.service';
 import { UIService } from './common/ui-service';
 import {LoadingReducer} from './app.reducer';
 import { StoreModule } from '@ngrx/store';
+import { DashboardComponent } from './Dashboard/dashboard.component';
 
 
 
@@ -39,7 +40,8 @@ import { StoreModule } from '@ngrx/store';
     WelcomeComponent,
     NavListComponent,
     NavToolbarComponent,
-    StopTrainingComponent
+    StopTrainingComponent,
+    DashboardComponent
     
   ],
   entryComponents:[StopTrainingComponent],
