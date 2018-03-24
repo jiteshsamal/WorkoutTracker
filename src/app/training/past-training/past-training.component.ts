@@ -39,5 +39,9 @@ export class PastTrainingComponent implements OnInit {
     this.pastDataSubscription.unsubscribe();
   }
 
+  onExerciseClicked(data:Exercise){
+    console.log(data);
+  }
+
 
 }

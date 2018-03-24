@@ -21,6 +21,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import {NavListComponent} from './nav-list/nav-list.component';
 import {NavToolbarComponent}from './nav-toolbar/nav-toolbar.component';
 import { StopTrainingComponent } from './training/stop-training/stop-training.component';
+import {DashboardComponent} from '../app/Dashboard/dashboard.component'
 
 
 
@@ -30,7 +31,7 @@ import {TrainingService} from './training/training.service';
 import { UIService } from './common/ui-service';
 import {LoadingReducer} from './app.reducer';
 import { StoreModule } from '@ngrx/store';
-import { DashboardComponent } from './Dashboard/dashboard.component';
+
 
 
 

@@ -8,10 +8,12 @@ import {NewTrainingComponent} from './training/new-training/new-training.compone
 import {PastTrainingComponent} from './training/past-training/past-training.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AuthGuard } from './AuthGuard.service';
+import {DashboardComponent} from '../app/Dashboard/dashboard.component'
 
 
 const routes:Routes=[
     {path:'',component:WelcomeComponent,pathMatch: 'full'},
+    {path:'dashboard',component:DashboardComponent},
     {path:'training',loadChildren:"../app/training/training.module#TrainingModule", canLoad: [AuthGuard]},
     
 ]

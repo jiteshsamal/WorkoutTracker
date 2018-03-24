@@ -9,10 +9,11 @@
     </div>
     <div style="display:flex;flex-direction:row-reverse;width: 100%;">
         <ul class="navigation-list" fxHide.lt-lg="true">
-            <li> <a *ngIf="!isAuthenticated" routerLink="/signup"><i class="material-icons icons">person_add</i> Signup</a></li>
-            <li><a *ngIf="!isAuthenticated" routerLink="/signin"><i class="material-icons icons">person</i> Signin</a></li>
-            <li><a *ngIf="isAuthenticated" routerLink="/training"><i class="material-icons icons">fitness_center</i> Training</a></li>
-            <li><a *ngIf="isAuthenticated" (click)="signOut()"> <i class="material-icons icons">&#xE879;</i> Signout</a></li>
+            <li> <a *ngIf="!isAuthenticated" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" routerLink="/signup"><i class="material-icons icons">person_add</i> Signup</a></li>
+            <li><a *ngIf="!isAuthenticated" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" routerLink="/signin"><i class="material-icons icons">person</i> Signin</a></li>
+            <li><a *ngIf="isAuthenticated" routerLinkActive="active" routerLinkActiveOptions="{exact:true}"  routerLink="/dashboard"><i class="material-icons icons">dashboard</i> Dashboard</a></li>
+            <li><a *ngIf="isAuthenticated" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" routerLink="/training"><i class="material-icons icons">fitness_center</i> Training</a></li>
+            <li><a *ngIf="isAuthenticated" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" (click)="signOut()"> <i class="material-icons icons">&#xE879;</i> Signout</a></li>
         </ul>
     </div>
 </mat-toolbar>

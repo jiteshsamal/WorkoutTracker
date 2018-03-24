@@ -4,7 +4,6 @@
                 style="background-color:white;padding:20px;height: 500px;" [formGroup]="signinForm"  novalidate>
                 <img src="/assets/unnamed.png" height="100px" width="100px">
                     <div class="flex-item" style="text-align: center;color:chocolate;font-weight:bold;font-size:20px;margin-top:20px;padding:20px;">Log in to Workout Tracker</div>
-                    <!-- <button type="submit" mat-raised-button style="background-color:#0067b8;color:white;">Log in with Facebook</button>-->
                      <mat-form-field class="flex-item">
                          <input class="form-control" type="email" matInput placeholder="Email" formControlName="email">
                          <mat-error *ngIf="signinForm.get('email').hasError('required')">Email is required</mat-error>
@@ -19,6 +18,7 @@
                          <button type="submit" style="width:200px;" *ngIf="!(showSpinner$ | async)" mat-raised-button color="accent" [disabled]="signinForm.invalid" (click)="submitform()">Login</button>
                          <div style="margin: 0 auto;" *ngIf="showSpinner$ | async" ><mat-spinner  [diameter]="diameter" color="primary"></mat-spinner></div>
                      </div>
+                     <button mat-raised-button  style="width:200px;" color="primary" >Facebook</button>
             
             
             

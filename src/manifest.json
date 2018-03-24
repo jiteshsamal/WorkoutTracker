@@ -4,7 +4,7 @@
    "start_url": "./",
    "theme_color": "#008080",
    "background_color": "#008B8B",
-   "display": "standalone",
+   "display": "fullscreen",
    "description": "A PWA that is built with Angular",
    "icons": [
        {

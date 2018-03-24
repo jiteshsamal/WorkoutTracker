@@ -1,16 +1,20 @@
 <mat-nav-list>
-    <a *ngIf="!isAuthenticated" mat-list-item routerLink="/signup" (click)="closeSidenav()">
+    <a *ngIf="!isAuthenticated" mat-list-item routerLink="/signup" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" (click)="closeSidenav()">
         <i class="material-icons">person_add</i>&nbsp; signup
     </a>
-    <a *ngIf="!isAuthenticated" mat-list-item routerLink="/signin" (click)="closeSidenav()">
+    <a *ngIf="!isAuthenticated" mat-list-item routerLink="/signin" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" (click)="closeSidenav()">
         <i class="material-icons">person</i>&nbsp;signin
 
     </a>
-    <a *ngIf="isAuthenticated" mat-list-item routerLink="/training" (click)="closeSidenav()">
+
+    <a *ngIf="isAuthenticated" mat-list-item routerLink="/dashboard" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" (click)="closeSidenav()">
+        <i class="material-icons icons">dashboard</i>&nbsp;DashBoard
+    </a>
+    <a *ngIf="isAuthenticated" mat-list-item routerLink="/training" routerLinkActive="active" routerLinkActiveOptions="{exact:true}"  (click)="closeSidenav()">
         <i class="material-icons icons">fitness_center</i>&nbsp;Training
     </a>
 
-    <a *ngIf="isAuthenticated" mat-list-item routerLink="/training" (click)="logOut()">
+    <a *ngIf="isAuthenticated" mat-list-item routerLink="/" routerLinkActive="active" routerLinkActiveOptions="{exact:true}" (click)="logOut()">
         <i class="material-icons icons">&#xE879;</i>&nbsp; Signout
     </a>
 </mat-nav-list>

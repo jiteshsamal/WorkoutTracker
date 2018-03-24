@@ -15,6 +15,8 @@ export class SignupComponent implements OnInit {
   spinnerSubscription:Subscription;
   diameter=50;
   strokeWidth=10;
+  feets=[0,1,2,3,4,5,6,7];
+  inches=[0,1,2,3,4,5,6,7,8,9,10,11];
   constructor(private authService:AuthService,private UIService:UIService) {
     
     this.startDate=new Date();
